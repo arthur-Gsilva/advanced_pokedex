@@ -1,0 +1,14 @@
+.main{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContent{
+    width: calc(94vw - 80px);
+    background-color: #1C1621;
+    height: 100%;
+    border-left: 1px solid var(--line-color);
+    border-right: 1px solid var(--line-color);
+}
