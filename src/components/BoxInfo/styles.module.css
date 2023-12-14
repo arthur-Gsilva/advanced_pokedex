@@ -4,15 +4,20 @@
     padding: 20px;
     margin: 20px;
     position: relative;
+    color: #fff;
+}
+
+.lines{
+    position: absolute;
+    inset: 0 0 auto 0;
 }
 
 .lines div{
-    height: 3px;
+    height: 4px;
 }
 
-.lineGreen{
+.lineColor{
     width: 30%;
-    background-color: green;
 }
 .line{
     background-color: transparent;
@@ -27,6 +32,24 @@
 
 .pokeInfo{
     font-weight: bold;
+    text-transform: uppercase;
+}
+
+.pokeStatBattle{
+    letter-spacing: 1.6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pokeStatItem{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.pokeStatItem div{
+   max-width: 100%;
 }
 
 .button{
@@ -34,7 +57,7 @@
     right: 20px;
     bottom: -20px;
     background: none;
-    border: 1px solid green;
+    border: 1px solid;
     color: #fff;
     padding: 10px;
     font-weight: bold;
@@ -43,5 +66,5 @@
     transition: .3s;
 }
 .button:hover{
-    background-color: green;
+    
 }

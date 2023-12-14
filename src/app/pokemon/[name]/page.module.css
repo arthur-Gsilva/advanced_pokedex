@@ -1,0 +1,39 @@
+.container{
+    position: relative;
+    
+}
+
+.stats{
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    
+}
+
+.statsContent{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    margin-top: 30px;
+}
+
+.statsItem{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+    text-transform: uppercase;
+}
+
+.statsItem p{
+    text-align: right;
+}
+
+.bar{
+    height: 6px;
+    border-radius: 5px;
+    
+}
