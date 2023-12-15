@@ -4,33 +4,50 @@ import { useState, useEffect } from 'react'
 import { Pokemon, PokemonType } from '@/types/Pokemon'
 import styles from './styles.module.css'
 import { getEffectiveTypes, getEffectiveness, getVulnerableTypes } from '@/utils/types'
+import { usePokeColor } from '@/contexts/PokeColor'
 
 type Props = {
     pokeName: boolean,
     data: Pokemon | undefined,
-    pokeColor: string | undefined
+    setData: (a: Pokemon) => void
 }
 
-export const BoxInfo = ({ pokeName, data, pokeColor }: Props) => {
+export const BoxInfo = ({ pokeName, data, setData }: Props) => {
+
+    const { pokeColor } = usePokeColor();
 
     const [pokemonTypeName, setPokemonTypeName] = useState<string | undefined>('');
+    const [nextPokemonId, setNextPokemonId] = useState<number | undefined>()
+    const [nextPokemonData, setNextPokemonData] = useState<PokemonType | undefined>()
+
     const [hovered, setHovered] = useState(false);
     
+    const getNextPokemon = async () => {
+        if (nextPokemonId != undefined) {
+            const id = nextPokemonId + 1
+            const request = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            const res = await request.json()
+            setData(res)
+        } else{
+            console.log('erro')
+        }
+    }
 
     useEffect(() => {
         if (data && data.types && data.types.length > 0 && data.types[0].type && data.types[0].type.name) {
             const typeName = data.types[0].type.name
             setPokemonTypeName(typeName[0].toUpperCase() + typeName.substring(1))
         }
+        setNextPokemonId(data?.id)
     }, [data]);;
 
     const handleMouseEnter = () => {
         setHovered(true);
-      };
+    };
     
       const handleMouseLeave = () => {
         setHovered(false);
-      };
+    };
 
 
     return(
@@ -57,7 +74,7 @@ export const BoxInfo = ({ pokeName, data, pokeColor }: Props) => {
                                     </>
                                 }
                             </div>
-                            <div>EVOLUTION: 1</div>
+                            <div>ID: {data?.id}</div>
                         </div>
                     </>
                 }
@@ -120,6 +137,7 @@ export const BoxInfo = ({ pokeName, data, pokeColor }: Props) => {
                 style={{borderColor: pokeColor, backgroundColor: hovered ? pokeColor : 'transparent'}}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                onClick={() => getNextPokemon()}
             >
                 {pokeName &&
                     <>

@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import { Pokemon } from '@/components/Pokemon'
 import { ColorType, Pokemon as PokemonType } from '@/types/Pokemon'
 import { useEffect, useState } from 'react'
+import { PokeColorProvider, usePokeColor } from '../../../contexts/PokeColor';
 
 type Props = {
     params: {
@@ -15,7 +16,8 @@ type Props = {
 const Page = ({ params }: Props) => {
 
     const [pokeData, setPokeData] = useState<PokemonType | undefined>()
-    const [pokeColor, setPokeColor] = useState<string | undefined>()
+    const { pokeColor, setPokeColor } = usePokeColor();
+
 
     const getData = async () => {
         const request = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
@@ -42,14 +44,13 @@ const Page = ({ params }: Props) => {
         }
     }, [pokeData])
     
-    
 
     return(
         <div className={styles.container}>
             <BoxInfo 
                 pokeName
                 data={pokeData}
-                pokeColor={pokeColor}
+                setData={setPokeData}
             />
 
             <div className={styles.stats}>
@@ -67,12 +68,12 @@ const Page = ({ params }: Props) => {
                 </div>
             </div>
 
-            <Pokemon data={pokeData} pokeColor={pokeColor}/>
+            <Pokemon data={pokeData}/>
 
             <BoxInfo 
                 pokeName={false}
                 data={pokeData}
-                pokeColor={pokeColor}
+                setData={setPokeData}
             />
         </div>
     )

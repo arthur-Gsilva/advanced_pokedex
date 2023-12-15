@@ -1,6 +1,3 @@
-
-
-
 const effectivenessChart = {
     Normal: { Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 0.5, Bug: 1, Ghost: 0, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Steel: 0.5, Fairy: 1 },
     Fighting: { Normal: 2, Fighting: 1, Flying: 0.5, Poison: 0.5, Ground: 1, Rock: 2, Bug: 0.5, Ghost: 0, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 0.5, Ice: 2, Dragon: 1, Dark: 2, Steel: 2, Fairy: 0.5 },
@@ -23,46 +20,18 @@ const effectivenessChart = {
 }
 
 
-type FireEffectiveType = {
-    type: string;
-    values: {
-      Normal: number;
-      Fighting: number;
-      Flying: number;
-      Poison: number;
-      Ground: number;
-      Rock: number;
-      Bug: number;
-      Ghost: number;
-      Fire: number;
-      Water: number;
-      Grass: number;
-      Electric: number;
-      Psychic: number;
-      Ice: number;
-      Dragon: number;
-      Dark: number;
-      Steel: number;
-      Fairy: number;
-    };
-  }
-
 export function getEffectiveness(pokemonType: string | undefined) {
     let weakness: string[]  = [];
     const resistant: string[] = [];
 
-  
-    // Loop por todos os tipos possíveis
     for (const type in effectivenessChart) {
         //@ts-ignore
       const multiplier = effectivenessChart[type][pokemonType];
   
-      // Se o multiplicador for 2, é super efetivo
       if (multiplier === 2) {
         weakness.push(type);
       }
   
-      // Se o multiplicador for 0.5, não é efetivo
       else if (multiplier === 0.5) {
         resistant.push(type);
       }

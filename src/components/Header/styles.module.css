@@ -41,8 +41,11 @@
 
 .navList li{
     cursor: pointer;
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid transparent;
     padding: 16px 0;
+}
+.navList li:hover{
+    border-color: var(--color-hover);
 }
 
 .hamburguer{

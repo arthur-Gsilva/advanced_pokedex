@@ -1,15 +1,16 @@
 import styles from './styles.module.css'
 
 import { SiCircle } from "react-icons/si";
-import bulba from '../../assets/images/balbasaur.png'
 import { Pokemon as PokemonType } from '@/types/Pokemon';
+import { usePokeColor } from '../../contexts/PokeColor';
 
 type Props = {
     data: PokemonType | undefined,
-    pokeColor: string | undefined
 }
 
-export const Pokemon = ({data, pokeColor}: Props) => {
+export const Pokemon = ({data}: Props) => {
+    const { pokeColor } = usePokeColor();
+
     return(
         <div className={styles.container}>
             <div style={{color: pokeColor}}>

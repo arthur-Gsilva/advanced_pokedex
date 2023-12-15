@@ -15,6 +15,7 @@ export type StatType = {
 }
 
 export type Pokemon = {
+    id: number,
     name: string,
     types: PokemonType[],
     sprites: {
