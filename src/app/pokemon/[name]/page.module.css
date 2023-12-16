@@ -1,6 +1,5 @@
 .container{
     position: relative;
-    
 }
 
 .stats{
@@ -8,7 +7,6 @@
     font-weight: 500;
     letter-spacing: 1px;
     position: relative;
-    
 }
 
 .statsContent{
@@ -35,5 +33,17 @@
 .bar{
     height: 6px;
     border-radius: 5px;
-    
+}
+
+@media(max-width: 850px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .statsContent{
+        position: initial;
+        margin-bottom: 20px;
+    }
 }

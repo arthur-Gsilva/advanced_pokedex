@@ -65,6 +65,18 @@
     cursor: pointer;
     transition: .3s;
 }
-.button:hover{
-    
+
+
+@media(max-width: 850px){
+    .container{
+        position: relative !important;
+        margin: 20px 0 30px 0!important;
+        right: 0 !important;
+        min-width: 450px;
+    }
+}
+@media(max-width: 480px){
+    .container{
+        min-width: 0;
+    }
 }

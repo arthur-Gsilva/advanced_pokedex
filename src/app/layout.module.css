@@ -12,3 +12,11 @@
     border-left: 1px solid var(--line-color);
     border-right: 1px solid var(--line-color);
 }
+
+@media(max-width: 1035px){
+    .mainContent{
+        width: calc(100vw - 20px);
+        padding: 0 20px;
+        border: none;
+    }
+}

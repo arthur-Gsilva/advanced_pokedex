@@ -20,8 +20,8 @@
 }
 
 .icon img{
-    height: 48px;
-    width: 48px;
+    height: auto;
+    width: 100%;
 }
 
 .nav{
@@ -29,6 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .6s;
 }
 
 .navList{
@@ -51,6 +52,8 @@
 .hamburguer{
     visibility: hidden;
     width: 3vw;
+    font-size: 1.4rem;
+    cursor: pointer;
 }
 
 .lineRight{
@@ -65,4 +68,46 @@
     height: 100%;
     width: 1px;
     margin-left: 20px;
+}
+
+.menuClose{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width: 650px){
+    .container{
+        min-height: 60px;
+    }
+    .hamburguer{
+        visibility: initial;
+    }
+
+    .lineLeft,
+    .lineRight{
+        display: none;
+    }
+    .nav{
+        position: absolute;
+        right: 0;
+        left: 0;
+        background-color: #111;
+        z-index: 5;
+        border-radius: 0 0 10px 10px;
+    }
+    .navList{
+        flex-direction: column;
+        gap: 0;
+        padding-top: 15px;
+    }
+    .menuClose{
+        display: block;
+    }
 }

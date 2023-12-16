@@ -70,11 +70,14 @@ const Page = ({ params }: Props) => {
 
             <Pokemon data={pokeData}/>
 
+            
             <BoxInfo 
                 pokeName={false}
                 data={pokeData}
                 setData={setPokeData}
             />
+            
+            
         </div>
     )
 }

@@ -14,4 +14,12 @@
 .container img{
     height: 220px;
     position: absolute;
+    z-index: 4;
+}
+
+@media(max-width: 850px){
+    .container{
+        position: initial !important;
+    }
+    
 }

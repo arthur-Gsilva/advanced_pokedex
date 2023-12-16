@@ -1,7 +1,5 @@
-
-
 import { useState, useEffect } from 'react'
-import { Pokemon, PokemonType } from '@/types/Pokemon'
+import { Pokemon } from '@/types/Pokemon'
 import styles from './styles.module.css'
 import { getEffectiveTypes, getEffectiveness, getVulnerableTypes } from '@/utils/types'
 import { usePokeColor } from '@/contexts/PokeColor'
@@ -18,7 +16,6 @@ export const BoxInfo = ({ pokeName, data, setData }: Props) => {
 
     const [pokemonTypeName, setPokemonTypeName] = useState<string | undefined>('');
     const [nextPokemonId, setNextPokemonId] = useState<number | undefined>()
-    const [nextPokemonData, setNextPokemonData] = useState<PokemonType | undefined>()
 
     const [hovered, setHovered] = useState(false);
     
@@ -54,7 +51,7 @@ export const BoxInfo = ({ pokeName, data, setData }: Props) => {
         <div className={styles.container} style={{
             position: !pokeName ? 'absolute' : 'relative',
             right: !pokeName ? '10px' : '0',
-            marginTop: !pokeName ? '50px' : '20px',
+            marginTop: !pokeName ? '120px' : '20px',
             
         }}>
             <div className={styles.lines}>
