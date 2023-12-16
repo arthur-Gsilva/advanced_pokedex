@@ -94,6 +94,10 @@
     .lineRight{
         display: none;
     }
+
+    .icon img{
+        width: 250%;
+    }
     .nav{
         position: absolute;
         right: 0;
